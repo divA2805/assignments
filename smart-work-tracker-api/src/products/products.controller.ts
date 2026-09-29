@@ -1,0 +1,19 @@
+import { Controller, Get,Delete, Param } from "@nestjs/common";
+import { ProductService,Task } from "./products.service.js";
+
+@Controller('products')
+export class ProductController{
+    constructor(private readonly productService:ProductService){}
+
+    @Get('data')
+    getall():Task[]{
+        return this.productService.getall();
+
+    }
+
+    @Delete(':id')
+    removeid(@Param('id') id: string) {
+        return this.productService.removeid(+id);
+    }
+
+}
