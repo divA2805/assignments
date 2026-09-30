@@ -58,4 +58,3 @@ export class ProductService {
 //     item.name.toLowerCase().includes(searchTerm)
 //   );
 }
-}
