@@ -42,4 +42,20 @@ export class ProductService {
   removeid(id: number): Task[] {
     return this.tasks.filter((item) => item.id !== id);
   }
+  getbyId(id:number):Task|undefined {
+    return this.tasks.find((item)=>item.id==id)
+  }
+  filterproducts(name?:string):Task[]{
+    const search = name?.toLowerCase().trim() || '';
+    return this.tasks.filter((items)=>items.name.toLowerCase().includes(search))
+  }
+
+//   filterproducts(name?: string): Task[] {
+//   if (!name) return this.tasks; // Return all tasks if name is undefined or empty
+  
+//   const searchTerm = name.toLowerCase().trim();
+//   return this.tasks.filter((item) => 
+//     item.name.toLowerCase().includes(searchTerm)
+//   );
+}
 }
